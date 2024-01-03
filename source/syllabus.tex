@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage[tagged, highstructure]{accessibility}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{natbib,verbatim}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={Course Syllabus},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+%\Scribe{Your Name}
+\title{Syllabus-CDS-CSE8803}
+\Lecturer{Nisha Chandramoorthy (nishac@gatech.edu)}
+\LectureNumber{Foundations of Computational Dynamical Systems}
+\LectureDate{Jan 2, 2024}
+\LectureTitle{}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\MakeScribeTop
+
+Dynamical systems, often represented by ordinary differential equations (ODEs) or iterated function systems, are models for variables that evolve with time. Dynamical systems theory is the study of the structure of all possible time-varying solutions of such systems, called orbits or trajectories. When the dynamics is stochastic or deterministic but chaotic, it also makes sense to study the time-asymptotic behavior or \emph{ergodic} properties of orbits. Across science and engineering, several computational questions are asked of dynamical systems such as: i) how sensitive are the orbits and orbit structure of the dynamics to one-time perturbations, to persistent deterministic perturbations, and to noisy perturbations?
+ii) given some measurements or observations of the dynamics, how do we forecast orbits into the future or predict their statistical moments?, and iii) how can we construct a simpler dynamical system (with fewer variables) that captures its \emph{essential} features? Putting such questions in a mathematical language and studying rigorous methods for their solutions are the primary goals of this course.
+
+We will start with an overview of nonlinear deterministic systems and their numerical analysis, using dynamical systems and ergodic theory. We will then cover some stochastic analysis and methods from computational statistics. See section \ref{sec:topics} for a list of topics. After establishing mathematical foundations, we will discuss rigorous computations applicable to dynamical systems that arise in the geosciences and in machine learning (optimization algorithms).
+
+\section{General information}
+\begin{itemize}
+	\item 3 credits, two lectures per week, 6 homeworks and 1 final project (no exams).
+	\item Class time and location: Mondays and Wednesdays, 2:00 pm -- 3:15 pm, Molecular Sciences and Engineering building G021
+	\item Class dates: Jan 08, 2024 -- May 02, 2024.
+	\item Office hours: Fridays 10:00 am -- 11:00 am
+	\item Instructor email: nishac@gatech.edu
+\end{itemize}
+
+\section{Prerequisites and tips for success}
+A strong background in linear algebra, probability and statistics as well as mathematical maturity (proof-based math, e.g., real and complex analysis) are necessary to succeed in this course. You must be skilled at Python/Julia programming for ML/data science. Additionally, you must be motivated to gain a foundational understanding of dynamical systems and stochastic analysis and interested in their scientific applications. In this case, you can definitely fill in gaps in your math and computing background by working through textbook material in analysis, linear algebra and through programming assignments.
+
+We emphasize that helping each other understand the concepts and enjoy the mathematical and computational aspects of learning together is the main goal of this course. Spending time building a strong foundation by learning classical techniques will help in forming a good mental model of this vast field, and help us keep up with (and not be intimidated by) the proliferating research in the area of data science methods.
+
+\section{Resources (not exhaustive)}
+\label{sec:resources}
+Being interdisciplinary, this course will cover select content from multiple textbooks (and also research articles, which will be cited during class), some of which are listed below. 
+\begin{itemize}
+	\item 
+		\href{https://books.google.com/books?hl=en&lr=&id=9nL7ZX8Djp4C&oi=fnd&pg=PR7&dq=katok+and+hasselblatt&ots=oWieU2cCAH&sig=T-g4-msNhCCTTpoSyMb09ZhnF2Y#v=onepage&q=katok%20and%20hasselblatt&f=false}{Introduction to the modern theory of dynamical systems} by Katok and Hasselblatt, Cambridge University Press.
+	\item  \href{https://books.google.com/books?hl=en&lr=&id=wUBvDwAAQBAJ&oi=fnd&pg=PT7&ots=AOtaTsiIyX&sig=MexxyAiFbXhsxZNKq6V7YLjjv5w#v=onepage&q&f=false}{Nonlinear dynamics and chaos} by Strogatz, second edition, Westview Press.
+	\item \href{https://link.springer.com/book/10.1007/978-3-662-12616-5}{Numerical Solution of Stochastic Differential Equations} by Kloeden and Platen, Springer. 
+
+	\item \href{https://www.nowpublishers.com/article/Details/MAL-073}{Computational Optimal Transport} by Peyre and Cuturi, Foundations and Trends in Machine Learning, 2019.
+	\item \href{https://books.google.com/books?hl=en&lr=&id=vaFKLXvfSaUC&oi=fnd&pg=PR9&dq=henk+dijkstra&ots=DCHHbStuIf&sig=ibiNU5CqYdT-Fo37v1FUIpuLs1o#v=onepage&q=henk%20dijkstra&f=false}{Nonlinear Physical Oceanography} by Dijkstra, Springer.	
+	\item \href{https://books.google.com/books?hl=en&lr=&id=dWB9DwAAQBAJ&oi=fnd&pg=PR5&dq=foundations+of+machine+learning+mohri&ots=AznTXOq_s4&sig=oFBecq2rS2nusMY-xRj1qD-0Dsk#v=onepage&q=foundations%20of%20machine%20learning%20mohri&f=false}{Foundations of machine learning} by Mohri, Rostamizadeh and Talwalkar, second edition, MIT Press. 
+	\item Lecture notes and handouts will be posted on the \href{https://github.com/ni-sha-c/}{Github site} for the class.
+
+\end{itemize}
+\section{A note on the CSE qualifying exam}
+If you are taking the CSE ``Computational Data Analysis'' qualifying exam, please prepare all the topics listed in the \href{https://cse.gatech.edu/sites/default/files/documents/2023/Handbook-2023-06-07.pdf}{CSE graduate handbook} by taking additional courses or through self-study. Some of the listed topics (such as non-negative matrix factorization) will not be covered in this class, and some topics that will be covered are beyond the scope of the qualifying exam.
+\
+\section{Tentative course schedule}
+Please note that the plan below is subject to change, both in terms of the content and order.
+\subsection*{Part 1 - Learning: Foundations, models, algorithms}
+\begin{itemize}
+	\item[Week 1] Least-squares regression, Compressed sensing, LASSO, Logistic regression, perceptron algorithm, Empirical risk minimization
+	\item[Week 2] Continuation of linear models, Halfspaces and linear programming, Gaussian mixtures
+	\item[Week 3 ] Neural network models, generalization, computational complexity of learning, PAC learning
+	\item[Week 4] Boosting algorithm, Support Vector machines, Decision trees, multi-class classifiers
+	\item[Week 5] Kernel methods, kernel trick, basis expansions, PCA, ICA
+	\item[Week 6] Clustering, k-means, spectral clustering, graphical models
+\end{itemize}
+\subsection*{Part 2: Statistics and optimization}
+\begin{itemize}
+	\item[Week 6] Kernel density estimation, Model selection and cross-validation, Bayesian inference
+	\item[Week 7] Variational inference, parameter estimation methods, probabilistic classifiers
+	\item[Week 8] Gradient and stochastic gradient descent variants, regularization, overfitting, generalization revisited
+
+	\item[Week 9] Margin theory, Bias-complexity tradeoff, generalization bounds, algorithmic stability
+
+	\end{itemize}
+
+\subsection*{Part 3: Other learning models and modalities}
+\begin{itemize}
+	\item[Week 10] Reinforcement learning, stochastic optimal control
+	\item[Week 11 ] SDEs, MCMC revisited, Score-based generative models/diffusion models.
+	\item[Week 12] Variational Autoencoders, Generative adversarial neural networks
+	\item[Week 13] Learning dynamical systems, operator learning
+\end{itemize}
+Other possible topics, if time permits:
+\begin{itemize}
+	\item Optimal transport, mean-field games
+	\item Graph neural networks
+	\item Transformers, LSTMs
+	\item Recurrent neural networks
+\end{itemize}
+
+\section{Grading information and late policy}
+
+The final grade will be determined by performance on:
+\begin{itemize}
+	\item Final project: 40\%
+	\item Homework: 30\%
+	\item Midterm I and II: 30\%
+\end{itemize}
+
+\textbf{Final project}: single most important contribution toward the grade. You can choose to do individual projects or in groups of 2. The final project submission includes a proposal (due mid November), code, accompanying report and a 5-minute presentation in the last week of class. A final project rubric and a set of guidelines will be posted on canvas before the proposal due date. All written material should be typed up and submitted on \href{https://www.gradescope.com/courses/578036}{Gradescope} as a pdf.\\
+
+\textbf{Homeworks}: there will be 4 homework assignments (due dates TBD, but spread out evenly through the semester before the final project) that will include programming assignments and theoretical questions. You are welcome to discuss with other students and use online resources to solve the questions. After that, however, all the submitted work should be your own. Please submit typed up homework solutions (handwritten solutions are often illegible and will not be graded) on \href{https://www.gradescope.com/courses/578036}{Gradescope} as a pdf. \\
+
+\textbf{Midterms}: One in-class midterm will be held on October 19th. Another mid-term will be take-home and due on November 7th in class. You are allowed to use a single page cheat sheet of your own notes during your midterms and \textbf{no} other material. We require that you follow the honor code for both midterms: no copying or cheating will be tolerated (see \ref{sec:honor}).\\
+
+\textbf{Late policy -- only applies to homeworks and final project proposal}: there is a late penalty of 25\% for a submission late by up to 24 hours, 50\% for a submission delayed beyond 24 hours and up to 48 hours. 
+
+\section{Honor code}
+\label{sec:honor}
+
+Georgia Tech aims to cultivate a community based on trust, academic integrity, and honor. Students are expected to act according to the highest ethical standards.  For information on Georgia Tech's Academic Honor Code, please visit \href{http://www.catalog.gatech.edu/policies/honor-code/}{this link} or \href{http://www.catalog.gatech.edu/rules/18/}{this one}. 
+
+Any student suspected of cheating or plagiarizing on a quiz, exam, or assignment will be reported to the Office of Student Integrity, who will investigate the incident and identify the appropriate penalty for violations.
+
+Ultimately, learning and engaging with the material, and having fun in the process is most important! Assessments and homeworks are no more than good motivators to keep you accountable in the learning process. It serves no purpose to violate the honor code. 
+
+\section{Accommodations for Students with Disabilities} 
+
+If you are a student with learning needs that require special accommodation, contact the Office of Disability Services at (404)894-2563 or \href{http://disabilityservices.gatech.edu/}{through their website}, as soon as possible, to make an appointment to discuss your special needs and to obtain an accommodations letter.  Please also e-mail me as soon as possible in order to set up a time to discuss your learning needs. 
+
+\section{Student-Faculty Expectations Agreement} 
+
+At Georgia Tech we believe that it is important to strive for an atmosphere of mutual respect, acknowledgement, and responsibility between faculty members and the student body. See \href{http://www.catalog.gatech.edu/rules/22/}{the catalog} for an articulation of some basic expectation that you can have of me and that I have of you. In the end, simple respect for knowledge, hard work, and cordial interactions will help build the environment we seek. Therefore, I encourage you to remain committed to the ideals of Georgia Tech while in this class. 
+%\bibliographystyle{abbrv}           % if you need a bibliography
+%\bibliography{mybib}                % assuming yours is named mybib.bib
+
+
+%%%%%%%%%%% end of doc
+\end{document}

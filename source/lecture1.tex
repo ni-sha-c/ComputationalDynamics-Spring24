@@ -70,9 +70,9 @@
 		\pause
 		\item How to understand the behavior of a dynamical system in the presence of noise?
 	\end{itemize}
-\begin{itemize}
 \end{frame}
-\begin{frame}{Learning outcomes}
+
+	\begin{frame}{Learning outcomes}
 	\begin{itemize}
 		\item To be able to do research in dynamical systems theory.
 		\item ``Take the dynamical systems approach'' to a computational math problem.
@@ -82,4 +82,101 @@
 	\end{itemize}
 
 \end{frame}
-\end{document}
+	\begin{frame}{Course resources}
+		\begin{itemize}
+			\item 6 homeworks (70\% of grade) and 1 final project (30\% of grade).
+			\pause
+			\item Homeworks will be a mix of theory and computation.
+			\pause
+			\item Final project will be related to your research interests and involve computational dynamical systems.
+			\pause
+			\item Syllabus, homeworks, and lecture notes will be posted on Canvas and Github.
+			\pause
+			\item See the syllabus section of canvas for the timeline.
+			\pause
+			\item See syllabus.pdf for details and topics.
+			\pause
+			\item Office hours: Friday 10-11 am, CODA S1323.
+
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Continuous time dynamical systems or flows}
+	\begin{itemize}
+		\item Given an initial point $x_0$ in phase space, $\varphi^t(x_0)$ is the point in phase space at time $t$.
+		\pause
+		\item Flow: $\varphi^t$, which satisfies group (composition) action.
+		\pause
+		\item $\varphi^0(x_0) = {\rm Id}(x_0) = x_0$.
+		\pause
+		\item But what is a phase space?
+		\pause
+		\item For us, it will be a compact manifold, denoted $M$, for deterministic systems.
+		\pause 
+		\item $M$ is a $d$-dimensional smooth manifold.
+
+	\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Flows of vector fields}
+		\begin{itemize}
+			\item A vector field $X$ is a map from the phase space to the tangent space of the phase space.
+			\pause
+			\item $v(x) \in T_xM$.
+			\pause
+			\item ODE: $\dot{x} = v(x)$.
+			\pause
+		\item $\dfrac{d\varphi^t}{dt}(x) = v(\varphi^t(x))$.
+		\pause
+		\item Vector fields can also be interpreted as linear functionals on the space of smooth functions on the manifold.
+		\pause
+		\item $X(f) = \langle v, df \rangle$, where $df$ is the differential of $f \in \mathcal{C}^\infty(M)$.
+
+		\end{itemize}
+	\end{frame}
+	
+
+	\begin{frame}{Discrete-time dynamical systems or maps}
+		\begin{itemize}
+			\item Given an initial point $x_0$ in phase space, $F^t(x_0)$ is the point in phase space after $t$ iterations.
+			\pause
+			\item Map: $F$, which satisfies group (composition) action.
+			\pause
+			\item $F^0(x) = {\rm Id}(x) = x$.
+			\pause
+			\item Can be obtained from a flow by taking the time-$1$ map, e.g., from time-integration of the ODE $F(x) = \varphi^1(x)$.
+			
+			
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{What is the Phase space here?}
+		\begin{itemize}
+		\item A tube with a flame inside -- model of jet engine -- modeled using the Navier-Stokes equation.
+		\pause
+		\item The Lorenz system -- model of convection in the atmosphere.
+		\pause
+		\item Price of a stock:
+			$$dS/S = \mu dt + \sigma dW$$.
+			\pause
+			\item $S$ is the price of the stock, $\mu$ is the drift, $\sigma$ is the volatility, $W$ is the Wiener process.
+			\pause
+			\item $S$ is a stochastic process, dealt with later in the course.
+		\item Delay differential equations, Partial differential equations, etc. also have infinite dimensional phase spaces.
+
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Analysis and basic topology}
+		\begin{itemize}
+			\item Topology, open and closed sets, limits.
+			\pause
+			\item continuity, differentiability
+			\pause
+			\item Compactness
+			\pause
+			\item Read Chapters 1-5, 7, 9 and 11 of Rudin's Principles of Mathematical Analysis.
+		\end{itemize}
+	\end{frame}
+	\end{document}

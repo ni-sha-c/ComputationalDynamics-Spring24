@@ -62,13 +62,13 @@
 	\begin{itemize}
 		\item Questions we will ask:
 		\pause
-		\item How to analyze a dynamical system?
+		\item What is the orbit structure -- what is the geometry of the space of all orbits?
 		\pause
-		\item How to predict the future of a dynamical system?
+		\item How to predict the future of a dynamical system along with quantifying uncertainties in our prediction?
 		\pause
-		\item How to understand the behavior of a dynamical system?
+		\item How stable are the orbits?
 		\pause
-		\item How to understand the behavior of a dynamical system in the presence of noise?
+		\item How to represent the system using a simpler/fewer equations?
 	\end{itemize}
 \end{frame}
 
@@ -78,32 +78,40 @@
 		\item ``Take the dynamical systems approach'' to a computational math problem.
 		\pause
 		\item Understand problems at the interface of dynamical systems and machine learning.
-
+		\pause 
 	\end{itemize}
 
 \end{frame}
+	\begin{frame}{What are the mathematical foundations?}
+		\begin{itemize}
+			\item Deterministic dynamics: local stability and global stability (perturbation theory of linear operators) uses real, complex and functional analysis, linear algebra and differential geometry
+			\pause
+		\item Ergodic theory uses measure theory (which is probability theory + analysis)
+		\pause
+	\item Our brief study of stochastic systems uses stochastic analysis
+		\end{itemize}
+	\end{frame}
 	\begin{frame}{Course resources}
 		\begin{itemize}
-			\item 6 homeworks (70\% of grade) and 1 final project (30\% of grade).
+			\item 6 homeworks (65\% of grade), 1 final project (25\% of grade) and scribing (10\% of grade).
 			\pause
 			\item Homeworks will be a mix of theory and computation.
 			\pause
 			\item Final project will be related to your research interests and involve computational dynamical systems.
 			\pause
-			\item Syllabus, homeworks, and lecture notes will be posted on Canvas and Github.
+		\item Syllabus, homeworks, and lecture notes will be posted on \href{https://canvas.gatech.edu}{Canvas} and \href{https://github.com/ni-sha-c/ComputationalDynamics-Spring24}{Github}.
 			\pause
 			\item See the syllabus section of canvas for the timeline.
 			\pause
 			\item See syllabus.pdf for details and topics.
 			\pause
 			\item Office hours: Friday 10-11 am, CODA S1323.
-
 		\end{itemize}
 	\end{frame}
 
 	\begin{frame}{Continuous time dynamical systems or flows}
 	\begin{itemize}
-		\item Given an initial point $x_0$ in phase space, $\varphi^t(x_0)$ is the point in phase space at time $t$.
+		\item Given an initial point $x_0$ in phase space, $\varphi^t(x_0)$ is the point in phase space at time $t$, the \emph{state} at time $t.$
 		\pause
 		\item Flow: $\varphi^t$, which satisfies group (composition) action.
 		\pause
@@ -113,15 +121,14 @@
 		\pause
 		\item For us, it will be a compact manifold, denoted $M$, for deterministic systems.
 		\pause 
-		\item $M$ is a $d$-dimensional smooth manifold.
-
+		\item $M$ is a $d$-dimensional smooth manifold. This means that $M$ can be mapped locally to a Euclidean space with a smooth transformation.
 	\end{itemize}
 	\end{frame}
 
 
 	\begin{frame}{Flows of vector fields}
 		\begin{itemize}
-			\item A vector field $X$ is a map from the phase space to the tangent space of the phase space.
+			\item A vector field $v$ is a map from the phase space to the tangent space of the phase space.
 			\pause
 			\item $v(x) \in T_xM$.
 			\pause
@@ -131,7 +138,7 @@
 		\pause
 		\item Vector fields can also be interpreted as linear functionals on the space of smooth functions on the manifold.
 		\pause
-		\item $X(f) = \langle v, df \rangle$, where $df$ is the differential of $f \in \mathcal{C}^\infty(M)$.
+		\item $v(f) = \langle v, df \rangle$, where $df$ is the differential of $f \in \mathcal{C}^\infty(M),$ $\langle \cdot, \cdot\rangle$ is an inner product on $TM$.
 
 		\end{itemize}
 	\end{frame}
@@ -145,7 +152,7 @@
 			\pause
 			\item $F^0(x) = {\rm Id}(x) = x$.
 			\pause
-			\item Can be obtained from a flow by taking the time-$1$ map, e.g., from time-integration of the ODE $F(x) = \varphi^1(x)$.
+		\item Can be obtained from a flow by taking the time-$\delta t$ map, e.g., from time-integration of the ODE $F(x) = \varphi^{\delta t}(x)$.
 			
 			
 		\end{itemize}

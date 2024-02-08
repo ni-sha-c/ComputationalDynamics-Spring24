@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[tagged, highstructure]{accessibility}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{natbib,verbatim}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={Homework 2},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+%\Scribe{Your Name}
+\title{Homework 2_8803}
+\LectureNumber{CSE 8803 CDS}
+\LectureDate{Due Feb 4,'24 (11:59 pm ET) on Gradescope} 
+\Lecturer{Cite any sources and collaborators; do not copy. See syllabus for policy.}
+\LectureTitle{Homework 1}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\MakeScribeTop
+
+\section*{Problem 1}
+This problem asks you to think about an iterative numerical method as a discrete-time dynamical system (map). Consider the power iteration method for a square, non-singular, diagonalizable matrix $A \in \mathbb{R}^{d\times d}.$ For $t \in \mathbb{N},$
+\begin{itemize}
+	\item $v_t \to Av_{t-1}$
+	\item[(*)] $v_{t+1} \to v_{t+1}/\|v_{t+1}\|.$
+\end{itemize}
+\begin{enumerate}
+	\item Write down a map $F(x_t) = x_{t+1}$ to describe the above algorithm, where $F$ is defined on a set $M \subseteq \mathbb{R}^d$. (1 point)
+	\item Is $M$ compact? (1 point)
+	\item Is $F$ a contraction on $M$? (1 point)
+	\item How many fixed points does $F$ have? (1 point) What are they? (1 point)
+	\item State the assumptions on $A$ so that almost every initial condition converges to a fixed point. (1 point)
+	\item Under the assumptions in the part above, prove the convergence of almost every iterate to a fixed point of $F.$ (3 points)
+	\item From here on, consider the power iteration without the normalization step (*). Write the corresponding new map, $F$, on $\mathbb{R}^d$ (1 point).
+	\item Give conditions on $A$ for $F$ to be a contraction map (1 point).
+	\item Give conditions on $A$ for $F$ to be a linear hyperbolic map (1 point).
+	\item Without the additional conditions in the above two parts (i.e., without hyperbolicity assumptions), describe the asymptotic behavior of all orbits of $F.$ That is, give, with justification, a stable-unstable-center decomposition of $\mathbb{R}^d$ by $F.$ (3 points).
+
+\end{enumerate}
+
+\section*{Problem 2 (KH Proposition 1.1.5)}
+
+This question is a first excursion into perturbation theory of dynamical systems. Let $F:M \to M$ be a contraction map with fixed point $x_F^*$ and contraction coefficient $\lambda_F \in (0,1)$: for all $x, y \in M,$ $\|F(x)- F(y)\| \leq \lambda_F \|x-y\|.$ Show that for every $\epsilon >0$, there exist $\delta >0$ and $\lambda_G \in (0,1)$ such that any map $G: M\to M$ with a contraction coefficient $\lambda_G$ that is $\delta$-close to $F$ in the $C^0$-norm, i.e.,$\|F - G\| := \sup_{x \in M} \|F(x) - G(x)\| \leq \delta$ satisfies $\|x_F^* - x_G^*\|\leq \epsilon.$    (5 points)
+
+\section*{Problem 3}
+
+Strogatz Ex. 5.3 (Love affairs)
+\begin{itemize}
+	\item 5.3.2 b (1 point)
+	\item 5.3.3 ``What happens?'' -> Describe the asymptotic behavior of all orbits ( 1point)
+	\item 5.3.4 (2 points)
+	\item 5.3.5 (2 point)
+	\item 5.3.6 (1 point)
+\end{itemize}
+
+\end{document}

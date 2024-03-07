@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage[tagged, highstructure]{accessibility}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{natbib,verbatim}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={Homework 4},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+%\Scribe{Your Name}
+\title{Homework 4_8803}
+\LectureNumber{CSE 8803 CDS}
+\LectureDate{Due Mar 20,'24 (11:59 pm ET) on Gradescope} 
+\Lecturer{Cite any sources and collaborators; do not copy. See syllabus for policy.}
+\LectureTitle{Homework 4}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\MakeScribeTop
+
+
+In this homework, we will explore computing Lyapunov vectors and exponents. We will consider the three-variable Lorenz '63 system, which was introduced as a reduced order model for atmospheric convection. Let $x = [a,b,c]$ be a phase point, and $a(x)$ is the first component/coordinate at $x.$ The system is given by the ODEs:
+\begin{align}
+	\dfrac{d\varphi^t(x)}{dt} &= v(\varphi^t(x)) = \begin{bmatrix}
+	\sigma(b - a) \\
+	a(\rho - c) - b \\
+	ab  - \beta c
+	\end{bmatrix} \circ \varphi^t(x).
+\end{align}
+Fix $\sigma = 10, \beta = 8/3$ and $\rho = 28$, which are values at which the system is known to be chaotic. 
+\begin{enumerate}
+	\item[I] (2 points) Plot the Lorenz attractor. Hint: time integrate the equations starting with a random initial condition and plot the result
+	\item[II] (5 points) Compute the three Lyapunov exponents. Write a code snippet, explaining each line.
+
+	\item[III] (5 points) Are the following statements true or false for the Lorenz '63 system? Provide justification.
+		\begin{enumerate}
+			\item The adjoint covariant Lyapounov vector is the same as the covariant Lyapunov vector for the top LE
+			\item The top (backward) Lyapunov vector is always covariant
+			\item There is a zero Lyapunov exponent for the ODE system
+			\item The stable adjoint Lyapunov vector is perpendicular to the unstable Lyapunov vector 
+			\item There is a dense set of points on the attractor that result in different LEs than the ones computed
+		\end{enumerate}
+	\item[IV] (10 points) Compute and plot the unstable adjoint Lyapunov vector. Provide a code snippet/algorithm.
+
+\end{enumerate}
+\end{document}

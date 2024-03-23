@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage[tagged, highstructure]{accessibility}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{natbib,verbatim}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={Homework 1},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+%\Scribe{Your Name}
+\title{Homework 1_8803}
+\LectureNumber{CSE 8803 CDS}
+\LectureDate{Due Jan 19, '24 (11:59 pm ET) on Gradescope} 
+\Lecturer{Cite any sources and collaborators; do not copy. See syllabus for policy.}
+\LectureTitle{Homework 1}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\MakeScribeTop
+
+\section*{Problem 1}
+This problem is about interchanging limits and the problems this can lead to. Source: Rudin Chapter 7.
+
+\subsection*{Part I: Uniform convergence}
+\begin{enumerate}
+	\item Prove Theorem 7.13 from Rudin: Suppose $f_n, n \in \mathbb{N}$ is a sequence of continuous functions on a compact set $E.$ Assume that i) $f_n$ converge pointwise to a continuous function $f$ and ii) $f_n(x) \geq f_{n+1}(x)$ for all $x \in E.$ Then, $f_n \to f$ uniformly on $E.$
+ (5 points)
+	\item State in mathematical terms what uniform convergence of a sequence of continuous functions with respect to the supremum norm is. (1 point)
+	\item Consider $f_n = \sin nx$. Does this sequence converge uniformly on a compact subset of $\mathbb{R}$? (1 point) Does it satisfy the assumptions i) and ii) of the Theorem in Part I.1? (1 point)
+	\item  Consider $f_n = \sum_{k=0}^n x^2/(1+x^2)^k$. Does this sequence converge uniformly on $[0,1]?$ (1 point) Does it satisfy the assumptions i) and ii) of the Theorem in Part I.1? (1 point)
+
+\end{enumerate}
+
+\subsection*{Part II: Limits and integration}
+
+Consider the sequence of functions $f_n(x) = n x (1-x^2)^n$, which is defined on $[0,1]$ for $ n \in \mathbb{N}$.
+\begin{enumerate}
+	\item Is $f_n$ uniformly continuous for all $n$? (2 points)
+	\item Does $f_n$ converge uniformly to $f(x) = 0$ on $(0,1]$? (1 point)
+	\item Let $g_n = \int_0^1 f_n(x) \: dx$. Does the sequence $g_n$ converge?  (1 point)
+	\item Define $h$ to be the integral of the limit $f$, $h := \int_0^1 f(x) \: dx$. Does $\lim_{n\to \infty} g_n = h?$ (1 point)
+	\item Consider the following theorem (7.16 of Rudin). Let $h_n$ be a sequence of Riemann integrable functions on $[a,b]$ for all $n$ and let $h_n \to h$ uniformly on $[a,b]$\footnote{Even pointwise convergence is sufficient for the same conclusion}. Then, $h$ is Riemann integrable on $[a,b]$ and the sequence of limits of integrals converges to the integral of the limit of the sequence, that is,
+		$$ \int_a^b h(x) \: dx = \lim_{n\to\infty} \int_a^b h_n(x) \: dx.$$ 
+Does your answer to the previous part satisfy the conclusion of this theorem? Why or why not? ( 2 points)
+\end{enumerate}
+
+
+\section*{Problem 2}
+
+Strogatz 2.3.6 (Language death). Consider the model 
+$\dot{x} = s(1-x)x^a - (1-s)x(1-x)^a.$
+
+\begin{enumerate}
+	\item[(a)] Show that this equation for $\dot{x}$ has three fixed points. (2 points)
+	\item[(b)] Show that for all $a > 1,$ the fixed points at $x =0$ and $x= 1$ are both stable. (2 points)
+	\item[(c)] Show that the third fixed point, $0 < x^* < 1,$ is unstable. (2 points)
+\end{enumerate}
+
+
+
+
+
+\end{document}

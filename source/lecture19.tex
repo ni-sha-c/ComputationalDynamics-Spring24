@@ -1,0 +1,142 @@
+\documentclass[final]{beamer}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,graphicx}
+\usepackage{eulervm,verbatim}         \usepackage{mathtools}
+\usepackage[scaled]{helvet}
+\usepackage[most]{tcolorbox}
+\setbeamercolor{frametitle}{fg=black,bg=white} % Colors of the block titles
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+\newcommand{\citesmall}[1]{[{\color{darkcerulean}\begin{small} \textbf{#1} \end{small}}]}
+\newcommand{\convergesInProb}{\stackrel{P}{\to}}
+\newcommand{\convergesAlmostSurely}{\stackrel{\mathrm{a.s.}}{\to}}
+\newcommand{\convergesInDist}{\stackrel{\mathrm{d}}{\to}}
+\setbeamertemplate{footline}[frame number]
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{graphicx}  % Required for including images
+\usepackage{bbm}
+\usepackage{booktabs} % Top and bottom rules for tables
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+\newcommand{\highlight}[1]{{\color{burgundy} \textbf{#1}}}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={CSE8803-CDS-Lecture 19},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+\title{\begin{huge}{Lecture 19: Introduction to RDS}\end{huge}} % Poster title
+
+
+\author{Nisha Chandramoorthy} % Author(s)
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\frame{\titlepage}
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVES
+%----------------------------------------------------------------------------------------
+\begin{frame}
+	\begin{itemize}
+		\item Limit theorems review 
+		\item Goal: basic idea behind diffusion models
+		\item Begin with Random walks 
+		\item Obtaining diffusion in the limit of random walks
+		\item Ergodic theory basics
+		\item Not much stochastic analysis
+		\item References: \citesmall{Arnold Random Dynamical Systems}, \citesmall{Song et al 2020}, \citesmall{Kidger 2022 PhD thesis}   
+	\end{itemize}
+\end{frame}
+\begin{frame}{So far...}
+	\begin{itemize}
+		\item Linear hyperbolic systems: where the matrix has no eigenvalues equal to 1 in magnitude.
+		\item More general hyperbolic systems: no zero Lyapunov exponent
+		\item Statistical properties of dynamical systems: ergodic theory
+		
+		\item Oseledets theorem: applies to Random Dynamical System (RDS), the cocycle considered is a linear RDS
+
+		\item $x_{t+1} = \varphi(x_t), \varphi: M\to M$
+		\item OMET deals with $d\varphi(x_t)$ as a dynamics on tangent vectors
+		\item Linear RDS: $d\varphi( v_1 + v_2) = d\varphi v_1 + d\varphi v_2; \; v_1, v_2 \in TM$
+	
+	\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Limit theorems review}
+	\begin{itemize}
+		\item $X_1, X_2, \cdots, $, where $X_i$ is independent and identically distributed (iid) with mean $\mu$ and std $\sigma < \infty$. Let $S_n = \sum_{i=1}^n X_i.$ 
+		\item Weak Law of Large Numbers: $\lim_{n\to \infty} \mathbb{P}(|S_n/n - \mu| > \epsilon) = 0$ for every $\epsilon > 0.$  That is, $S_n/n \convergesInProb \mu$ as $n \to \infty$. Convergence in probability. 
+			(Proof: Chebyshev's inequality when $\sigma < \infty$, but LLNs do not require finite variance in general)
+		\item Strong LLN: $\mathbb{P}(\lim_{n\to \infty} S_n/n = \mu) = 1.$ Also written as $S_n/n \convergesAlmostSurely \mu.$ Almost sure convergence. (requires boundedness of expected value)  
+		\item Central limit theorem: $\lim_{n\to\infty} {\rm CDF}((S_n-n\mu)/(\sqrt{n}\sigma))(t) = {\rm CDF}(Z)(t),$ where $Z$ is a standard Gaussian. That is, $((S_n-n\mu)/(\sqrt{n}\sigma)) \convergesInDist \mathcal{N}(0, 1).$ Convergence in distribution. (Requires finite variance)  
+		\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+	\begin{itemize}
+\item We will see limit theorems when $X_i = f\circ \varphi^i(x_0)$, where $\varphi$ is a random or deterministic DS. $x_0$ is a random variable sampled from any distribution.
+	
+		\item In deterministic dynamics, randomness comes from initial condition 
+		\item $\varphi(x) = Ax ,$ linear hyperbolic
+		\item $X_0 \sim \rho_0$, then, $X_t \sim \rho_t.$ 
+		\item $X_{t} \sim \rho$ and $X_{t+1} \sim \rho$, then, $\rho$ is an invariant density.
+		\item For Cat map, $\rho$ is uniform on unit square
+		\item $\rho_{t+1} = \varphi_\sharp \rho_t$
+		\item Markov process: 
+			$\mathbb{P}(X_t|X_1, \cdots, X_{t-1}) = \mathbb{P}(X_t|X_{t-1})$
+		\item Transition kernel of a Markov process: $\mathcal{K}(x, A) = \mathbb{P}(X_{t+1} \in A|X_t = x)$
+		\item $\rho_{t+1}(A) = \int_x \mathcal{K}(x, A) \rho_t(dx).$
+	\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+	\begin{itemize}
+			\item $\rho_{t+1}(A) = \int_x \mathcal{K}(x, A) \rho_t(dx).$
+			\item Transition operator: $\mathcal{T}\rho (A) = \int \mathcal{K}(x,A) \rho(dx)$ (Function on the space of measures) 
+
+			\item $\mathcal{T}(\rho_1 + \rho_2) = \mathcal{T}\rho_1 + \mathcal{T}\rho_2 $ (linear operator) 
+			\item Alternatively: $\rho$ is an invariant measure if it is an eigenfunction of $\mathcal{T}$ with eigenvalue 1. 
+
+	\item Limit theorems also valid for some ``weakly'' dependent RVs
+	\item If $X_1,\cdots, X_n\cdots,$ is generated by a hyperbolic dynamical system, CLT is valid.
+	\item $|(1/T) \sum_{t\leq T} f(X_t) - E_{x \sim \rho} f(x)|$ behaves like a normal RV for an idealized class of chaotic systems 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Random walk}
+\begin{itemize}
+	\item Start on a 1D lattice at 0. With probability $1/2$, go left or right. 
+	\item $\mathbb{P}(X_t = k) = {t \choose (t+k)/2} \dfrac{1}{2^t}.$ Let $a$ and $b$ be the number of times you go right and left respectively. Clearly, $a + b = t.$ Also, $a-b = k.$
+	\item Stirling's approximations of these probabilities for large $t.$  $\log n! \approx n \log n - n$
+	\item $\mathcal{K}(x, \{x+1\}) = 1/2$
+\item Diffusion processes.
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+
+
+\end{document}

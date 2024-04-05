@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage[tagged, highstructure]{accessibility}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{scribe}
+\usepackage{listings}
+\usepackage{natbib,verbatim}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+    pdftitle={Homework 5},
+    pdfauthor={Nisha Chandramoorthy},
+    pdflang={en-US}
+}
+
+%\Scribe{Your Name}
+\title{Homework 5_8803}
+\LectureNumber{CSE 8803 CDS}
+\LectureDate{Due April 19,'24 (11:59 pm ET) on Gradescope} 
+\Lecturer{Cite any sources and collaborators; do not copy. See syllabus for policy.}
+\LectureTitle{Homework 5}
+
+\lstset{style=mystyle}
+
+\begin{document}
+\MakeScribeTop
+\section{Problem 1 (10 points)}
+Here we would like to proof a foundational result in ergodic theory: Birkhoff ergodic theorem. Consider a map $\varphi: M \to M$ with an ergodic measure, $\mu$. Prove that for any function $f \in L^1(\mu),$\footnote{$L^1(\mu)$ is the space of functions with $\int |f| \: d\mu \leq \infty.$}, its time average along an orbit, $(1/T) \sum_{t\leq T} f(\varphi^t(x))$ converges to a constant, independent of $x$ for $\mu$ almost every $x.$ 
+
+This result can be interpreted as a strong law of large numbers for the sequence $f\circ\varphi^t(x)$.
+
+Hint: use Theorem 4.1.2 from KH. Then, any function that is constant along an orbit is constant almost everywhere for an ergodic system. 
+
+
+\section{Problem 2 (20 points)}
+
+In this problem, we will implement an approximate score generative model (Song and Ermon 2019). 
+\begin{itemize}
+	\item[Part I] Brownian motion or Wiener process is a popular choice for the forward process of an SGM. Simulate a Wiener process $W_t, t\leq 1.$ Explain your code. (4 points)
+	\item[Part II] Let $\rho_t$ be the solution of the Fokker Planck equation of $dX_t = dW_t.$ Set $\rho_0$ to be a bimodal Gaussian of your choice. What is $\rho_t$? (3 points)
+	\item[Part III] The reverse SDE is defined as follows:
+		\begin{align}
+			dY_t = \nabla \log \rho_{1-t}(Y_t) \; dt + dW_t,
+		\end{align}
+		with $Y_0 \sim \rho_1.$ We will approximate the expression $\nabla \log \rho_{1-t}(Y_t)$ with data obtained from the forward process. Simulate the reverse process until $t=1.$ Plot the distribution of $Y_1$. (5 points)
+	\item[Part IV] Do we expect $Y_1$ to be distributed according to the target distribution (the bimodal Gaussian you set $\rho_0$ to)? Why or why not? (8 points)
+
+\end{itemize}
+
+
+\end{document}

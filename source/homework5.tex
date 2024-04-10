@@ -50,7 +50,7 @@ In this problem, we will implement an approximate score generative model (Song a
 		\begin{align}
 			dY_t = \nabla \log \rho_{1-t}(Y_t) \; dt + dW_t,
 		\end{align}
-		with $Y_0 \sim \rho_1.$ We will approximate the expression $\nabla \log \rho_{1-t}(Y_t)$ with data obtained from the forward process. Simulate the reverse process until $t=1.$ Plot the distribution of $Y_1$. (5 points)
+		with $Y_0 \sim \rho_1.$ We will approximate the expression $\nabla \log \rho_{1-t}(Y_t)$ analytically, using the Fokker-Planck equation of the forward process. Simulate the reverse process until $t=1.$ Plot the distribution of $Y_1$. (5 points)
 	\item[Part IV] Do we expect $Y_1$ to be distributed according to the target distribution (the bimodal Gaussian you set $\rho_0$ to)? Why or why not? (8 points)
 
 \end{itemize}
